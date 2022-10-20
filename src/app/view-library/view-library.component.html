@@ -16,6 +16,7 @@
                         <td>{{i.author}}</td>
                         <td>{{i.language}}</td>
                         <td>{{i.published}}</td>
+                        <td><button class="btn btn-danger" (click)="deleteBookData(i.id)">Delete</button></td>
                     </tr>
                 </tbody>
             </table>
