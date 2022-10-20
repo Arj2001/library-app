@@ -9,18 +9,30 @@ import { ApiService } from '../api.service';
 export class ViewLibraryComponent implements OnInit {
 
   constructor(private myApi:ApiService) {
-    this.putFlightData()
-   }
+    this.putBookData()
+  }
 
-    putFlightData=()=>{
-      this.myApi.getBooks().subscribe(
-        (data)=>{
-          this.booksData = data
-        }
-      )
+  putBookData=()=>{
+    this.myApi.getBooks().subscribe(
+      (data)=>{
+        this.booksData = data
+      }
+    )
+  }
+
+  deleteBookData=(id: any)=>{
+    let data = {
+      "id":id
     }
+    this.myApi.deleteBook(data).subscribe(
+      (response)=>{
 
-    booksData:any
+      }
+    )
+    this.putBookData()
+  }
+
+  booksData:any
   ngOnInit(): void {
   }
 
